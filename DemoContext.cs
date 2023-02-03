@@ -51,11 +51,11 @@ public class DemoContext : DbContext
         modelBuilder.Entity<DogShot>(dogShot =>
         {
             dogShot.HasData(
-                new DogShot { Id = 1, DogId = 1, ShotId = 1, Administered = DateTime.Now },
-                new DogShot { Id = 2, DogId = 1, ShotId = 2, Administered = DateTime.Now },
-                new DogShot { Id = 3, DogId = 1, ShotId = 3, Administered = DateTime.Now },
-                new DogShot { Id = 4, DogId = 2, ShotId = 2, Administered = DateTime.Now },
-                new DogShot { Id = 5, DogId = 3, ShotId = 4, Administered = DateTime.Now }
+                new DogShot { Id = 1, DogId = 1, ShotId = 1, Administered = DateTime.Parse("1/29/2023"), Notes = "No wincing" },
+                new DogShot { Id = 2, DogId = 1, ShotId = 2, Administered = DateTime.Parse("1/22/2023"), Notes = "Has a fear of needles!" },
+                new DogShot { Id = 3, DogId = 1, ShotId = 3, Administered = DateTime.Parse("1/17/2023"), Notes = "Was a good dog, got a treat afterward" },
+                new DogShot { Id = 4, DogId = 2, ShotId = 2, Administered = DateTime.Parse("2/2/2023"), Notes = "This dog ran like hell" },
+                new DogShot { Id = 5, DogId = 3, ShotId = 4, Administered = DateTime.Parse("12/17/2022"), Notes = "Tried to eat syringe" }
             );
         });
 

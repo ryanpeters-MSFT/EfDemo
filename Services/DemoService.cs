@@ -44,7 +44,9 @@ public class DemoService
 
             foreach (var dogShot in dog.DogShots)
             {
-                Console.WriteLine($"- Has {dogShot.Shot.Name} administered");
+                Console.WriteLine("SHOT:");
+                Console.WriteLine($"- {dogShot.Shot.Name} on {dogShot.Administered.ToShortDateString()}");
+                Console.WriteLine($"- NOTES: {dogShot.Notes}");
             }
         }
     }

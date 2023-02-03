@@ -6,4 +6,5 @@ public class DogShot
     public int ShotId { get; set; }
     public Shot Shot { get; set; }
     public DateTime Administered { get; set; }
+    public string Notes { get; set; }
 }
