@@ -16,6 +16,7 @@ public class DemoService
         //UpdateEntityBad();
         //UpdateEntityGood();
         //UpdateRawSql();
+        //BatchDelete();
     }
 
     public void SimpleQuery()
@@ -120,5 +121,12 @@ public class DemoService
         var newName = "Distemper";
 
         context.Database.ExecuteSqlInterpolated($"update shot set name = {newName} where id = {id}");
+    }
+
+    public void BatchDelete()
+    {
+        var dogs = context.Dogs.Where(d => d.Name == "Some New Dog");
+
+        dogs.ExecuteDelete();
     }
 }
