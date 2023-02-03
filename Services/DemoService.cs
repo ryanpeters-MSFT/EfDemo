@@ -17,6 +17,7 @@ public class DemoService
         //UpdateEntityGood();
         //UpdateRawSql();
         //BatchDelete();
+        //Transaction();
     }
 
     public void SimpleQuery()
@@ -128,5 +129,37 @@ public class DemoService
         var dogs = context.Dogs.Where(d => d.Name == "Some New Dog");
 
         dogs.ExecuteDelete();
+    }
+
+    public void Transaction()
+    {
+        using (var transaction = context.Database.BeginTransaction())
+        {
+            try
+            {
+                context.Dogs.Add(new Dog
+                {
+                    Name = "Spot", 
+                    Age = 7, 
+                    Breed = "Those tiny ones",
+                    AgencyId = 2
+                });
+
+                context.SaveChanges();
+
+                // this will cause an exception upon save
+                var dogThatDoesNotExist = context.Find<Dog>(999);
+
+                context.Remove(dogThatDoesNotExist);
+
+                context.SaveChanges();
+
+                transaction.Commit();
+            }
+            catch
+            {
+                transaction.Rollback();
+            }
+        }
     }
 }
