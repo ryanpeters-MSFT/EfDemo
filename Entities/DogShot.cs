@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations.Schema;
-
 public class DogShot
 {
     public int Id { get; set; }

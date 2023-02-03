@@ -30,5 +30,4 @@ var app = builder.Build();
 
 var service = app.Services.GetService<DemoService>();
 
-//await service.SimpleQuery();
 await service.Run();

@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using MySqlConnector;
 
 public class DemoService
 {
@@ -9,13 +8,14 @@ public class DemoService
 
     public async Task Run()
     {
-        //SimpleQuery();
+        SimpleQuery();
         //JoinQuery();
-        CustomSql();
+        //CustomSql();
         //LinqQuery();
         //ChangeTracking();
         //UpdateEntityBad();
         //UpdateEntityGood();
+        //UpdateRawSql();
     }
 
     public void SimpleQuery()
@@ -47,7 +47,7 @@ public class DemoService
         }
     }
 
-    public void CustomSql()
+    public void QueryRawSql()
     {
         // this approach MUST fill every required property on the entity
         var dogs = context.Dogs.FromSqlRaw("select * from dogs limit 2").ToList();
@@ -80,7 +80,7 @@ public class DemoService
     {
         var dogs = context.Dogs.ToList();
 
-        dogs.FirstOrDefault(d => d.Id == 2).Name = "Billy Boy Doggo";
+        //dogs.FirstOrDefault(d => d.Id == 2).Name = "Billy Boy Doggo";
         //dogs.FirstOrDefault(d => d.Breed == "Poodle").Name = "Poodle dog";
 
         foreach (var entry in context.ChangeTracker.Entries().Where(e => e.State != EntityState.Unchanged))
@@ -112,5 +112,13 @@ public class DemoService
         context.Entry(dog).Property(d => d.Name).IsModified = true;
 
         context.SaveChanges();
+    }
+
+    public void UpdateRawSql()
+    {
+        var id = 2;
+        var newName = "Distemper";
+
+        context.Database.ExecuteSqlInterpolated($"update shot set name = {newName} where id = {id}");
     }
 }

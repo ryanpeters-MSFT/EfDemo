@@ -80,7 +80,7 @@ namespace EntityFrameworkDemos.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "dogshot",
+                name: "DogShot",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -91,15 +91,15 @@ namespace EntityFrameworkDemos.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_dogshot", x => x.Id);
+                    table.PrimaryKey("PK_DogShot", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_dogshot_Dogs_DogId",
+                        name: "FK_DogShot_Dogs_DogId",
                         column: x => x.DogId,
                         principalTable: "Dogs",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_dogshot_Shot_ShotId",
+                        name: "FK_DogShot_Shot_ShotId",
                         column: x => x.ShotId,
                         principalTable: "Shot",
                         principalColumn: "Id",
@@ -141,15 +141,15 @@ namespace EntityFrameworkDemos.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "dogshot",
+                table: "DogShot",
                 columns: new[] { "Id", "Administered", "DogId", "ShotId" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 2, 3, 10, 20, 59, 198, DateTimeKind.Local).AddTicks(7863), 1, 1 },
-                    { 2, new DateTime(2023, 2, 3, 10, 20, 59, 198, DateTimeKind.Local).AddTicks(7909), 1, 2 },
-                    { 3, new DateTime(2023, 2, 3, 10, 20, 59, 198, DateTimeKind.Local).AddTicks(7910), 1, 3 },
-                    { 4, new DateTime(2023, 2, 3, 10, 20, 59, 198, DateTimeKind.Local).AddTicks(7912), 2, 2 },
-                    { 5, new DateTime(2023, 2, 3, 10, 20, 59, 198, DateTimeKind.Local).AddTicks(7913), 3, 4 }
+                    { 1, new DateTime(2023, 2, 3, 10, 58, 13, 69, DateTimeKind.Local).AddTicks(6329), 1, 1 },
+                    { 2, new DateTime(2023, 2, 3, 10, 58, 13, 69, DateTimeKind.Local).AddTicks(6402), 1, 2 },
+                    { 3, new DateTime(2023, 2, 3, 10, 58, 13, 69, DateTimeKind.Local).AddTicks(6403), 1, 3 },
+                    { 4, new DateTime(2023, 2, 3, 10, 58, 13, 69, DateTimeKind.Local).AddTicks(6405), 2, 2 },
+                    { 5, new DateTime(2023, 2, 3, 10, 58, 13, 69, DateTimeKind.Local).AddTicks(6406), 3, 4 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -158,13 +158,13 @@ namespace EntityFrameworkDemos.Migrations
                 column: "AgencyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_dogshot_DogId",
-                table: "dogshot",
+                name: "IX_DogShot_DogId",
+                table: "DogShot",
                 column: "DogId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_dogshot_ShotId",
-                table: "dogshot",
+                name: "IX_DogShot_ShotId",
+                table: "DogShot",
                 column: "ShotId");
         }
 
@@ -172,7 +172,7 @@ namespace EntityFrameworkDemos.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "dogshot");
+                name: "DogShot");
 
             migrationBuilder.DropTable(
                 name: "Dogs");

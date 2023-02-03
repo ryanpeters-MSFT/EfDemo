@@ -50,7 +50,7 @@ public class DemoContext : DbContext
 
         modelBuilder.Entity<DogShot>(dogShot =>
         {
-            dogShot.ToTable("dogshot").HasData(
+            dogShot.HasData(
                 new DogShot { Id = 1, DogId = 1, ShotId = 1, Administered = DateTime.Now },
                 new DogShot { Id = 2, DogId = 1, ShotId = 2, Administered = DateTime.Now },
                 new DogShot { Id = 3, DogId = 1, ShotId = 3, Administered = DateTime.Now },

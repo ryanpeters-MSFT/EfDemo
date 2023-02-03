@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EntityFrameworkDemos.Migrations
 {
     [DbContext(typeof(DemoContext))]
-    [Migration("20230203152059_initial")]
+    [Migration("20230203155813_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -164,41 +164,41 @@ namespace EntityFrameworkDemos.Migrations
 
                     b.HasIndex("ShotId");
 
-                    b.ToTable("dogshot", (string)null);
+                    b.ToTable("DogShot");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            Administered = new DateTime(2023, 2, 3, 10, 20, 59, 198, DateTimeKind.Local).AddTicks(7863),
+                            Administered = new DateTime(2023, 2, 3, 10, 58, 13, 69, DateTimeKind.Local).AddTicks(6329),
                             DogId = 1,
                             ShotId = 1
                         },
                         new
                         {
                             Id = 2,
-                            Administered = new DateTime(2023, 2, 3, 10, 20, 59, 198, DateTimeKind.Local).AddTicks(7909),
+                            Administered = new DateTime(2023, 2, 3, 10, 58, 13, 69, DateTimeKind.Local).AddTicks(6402),
                             DogId = 1,
                             ShotId = 2
                         },
                         new
                         {
                             Id = 3,
-                            Administered = new DateTime(2023, 2, 3, 10, 20, 59, 198, DateTimeKind.Local).AddTicks(7910),
+                            Administered = new DateTime(2023, 2, 3, 10, 58, 13, 69, DateTimeKind.Local).AddTicks(6403),
                             DogId = 1,
                             ShotId = 3
                         },
                         new
                         {
                             Id = 4,
-                            Administered = new DateTime(2023, 2, 3, 10, 20, 59, 198, DateTimeKind.Local).AddTicks(7912),
+                            Administered = new DateTime(2023, 2, 3, 10, 58, 13, 69, DateTimeKind.Local).AddTicks(6405),
                             DogId = 2,
                             ShotId = 2
                         },
                         new
                         {
                             Id = 5,
-                            Administered = new DateTime(2023, 2, 3, 10, 20, 59, 198, DateTimeKind.Local).AddTicks(7913),
+                            Administered = new DateTime(2023, 2, 3, 10, 58, 13, 69, DateTimeKind.Local).AddTicks(6406),
                             DogId = 3,
                             ShotId = 4
                         });
